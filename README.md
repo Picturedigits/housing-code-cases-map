@@ -19,6 +19,8 @@
 - To avoid stacking multiple cases from the same address on top of each other, the code injects a small amount of "noise" into the coordinates on the fly. The maximum value for noise is 0.0001, which is roughly 10 meters (30 ft).
 
 ## Credits
-Developed by <HandsOnDataViz.org>: Ilya Ilyankou / Picturedigits and Jack Dougherty, with support from the Office of Community Learning at Trinity College, CT.
+Developed by <https://HandsOnDataViz.org>: Ilya Ilyankou / Picturedigits and Jack Dougherty, with support from the Office of Community Learning at Trinity College, CT.
 
 See Leaflet Heatmap template: https://github.com/HandsOnDataViz/leaflet-heatmap
+
+Learn more about how to create your own Leaflet maps at <https://HandsOnDataViz.org>
