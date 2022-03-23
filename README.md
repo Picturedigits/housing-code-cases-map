@@ -9,10 +9,11 @@
 
 ## Methods
 - IMPORTANT: The status and quality of data in this continuously-updated map depends entirely on the City of Hartford Socrata open data platform for Housing Code Cases.
-- The code uses the Socrata API to query all Housing Code Cases from Jan 2020 to present:
-```$.getJSON(
+- The code uses the Socrata API to query all Housing Code Cases reported from Jan 2020 to present:
+```
+$.getJSON(
   'https://data.hartford.gov/resource/86ax-cfey.json?'
-    + '$select=parcel_id,location,complaintviolation,reported'
+    + '$select=case_number,parcel_id,location,complaintviolation,reported'
     + '&$limit=99999999&$where=reported>="2020-01-01"',
 ```
 - Hartford parcel boundary centroids were pre-calculated in `hartford-parcels`, and the code draws on these to add lat/lng to cases where possible. Only cases that can be associated with an existing Hartford parcel are displayed.
@@ -20,6 +21,8 @@
 
 ## Credits
 Developed by <https://HandsOnDataViz.org>: Ilya Ilyankou / Picturedigits and Jack Dougherty, with support from the Office of Community Learning at Trinity College, CT.
+
+See Leaflet Maps with Open Data APIs template: https://handsondataviz.org/leaflet-maps-open-data-apis.html
 
 See Leaflet Heatmap template: https://github.com/HandsOnDataViz/leaflet-heatmap
 

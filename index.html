@@ -26,7 +26,7 @@
     <h1 class="f3 mt0">Housing Code Cases Heatmap</h1>
 
     <p class="measure mb1">
-      Zoom in to view Housing Code Cases reported by City of Hartford CT from January 2020 to today. <a href="https://github.com/HandsOnDataViz/housing-code-cases-map">Learn more about data and code.</a>
+      Zoom in to view Housing Code Cases reported by City of Hartford CT from January 2020 to today. <a href="https://github.com/HandsOnDataViz/housing-code-cases-map">Learn more about continuously-updated data and code.</a>
     </p>
 
   </div>
@@ -64,7 +64,7 @@
 
         $.getJSON(
           'https://data.hartford.gov/resource/86ax-cfey.json?'
-            + '$select=parcel_id,location,complaintviolation,reported'
+            + '$select=case_number,parcel_id,location,complaintviolation,reported'
             + '&$limit=99999999&$where=reported>="2020-01-01"',
 
           function(cases) {
@@ -96,7 +96,7 @@
                 fillOpacity: 0.5,
                 fillColor: 'blue'
               }).bindTooltip(
-                [x.location, x.complaintviolation, x.reported.split('T')[0]].join('<br>')
+                [x.location, x.case_number, x.complaintviolation, x.reported.split('T')[0]].join('<br>')
               )
             })
 
