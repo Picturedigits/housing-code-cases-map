@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bicycle Theft in London – Leaflet Heatmap Template</title>
+  <title>Housing Code Cases Heatmap</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
@@ -23,11 +23,10 @@
   <div id="map" class="vh-100 vw-100 bg-near-white"></div>
 
   <div id="legend" class="bg-white fixed top-0 left-0 pa2 mt2 ml2 br1 o-90" style="z-index: 999; width: 380px">
-    <h1 class="f3 mt0">Housing Code Cases</h1>
+    <h1 class="f3 mt0">Housing Code Cases Heatmap</h1>
 
     <p class="measure mb1">
-      This interactive map shows housing code cases in Hartford between
-      1 January 2020 and today.
+      Zoom in to view Housing Code Cases reported by City of Hartford CT from January 2020 to today. <a href="https://github.com/HandsOnDataViz/housing-code-cases-map">Learn more about data and code.</a>
     </p>
 
   </div>
@@ -67,10 +66,10 @@
           'https://data.hartford.gov/resource/86ax-cfey.json?'
             + '$select=parcel_id,location,complaintviolation,reported'
             + '&$limit=99999999&$where=reported>="2020-01-01"',
-            
+
           function(cases) {
 
-            // Add lat/lng to cases where posisble
+            // Add lat/lng to cases where possible
             let casesGeocoded = cases.map(function(x) {
               let pid = parseInt(x.parcel_id);
               if (parcel2coords[pid]) {
@@ -80,7 +79,7 @@
               }
               return null;
             }).filter(function(x) { return x !== null; })
-            
+
 
             // Create a heatmap layer
             let heatCoords = casesGeocoded.map(function(x) {
@@ -145,7 +144,7 @@
 
     // Add custom attribution
     L.control.attribution({
-      prefix: '<a href="https://github.com/HandsOnDataViz/leaflet-heatmap">View data and code</a> \
+      prefix: '<a href="https://github.com/HandsOnDataViz/housing-code-cases-map">View data and code</a> \
         by <a href="https://handsondataviz.org" target="_blank">HandsOnDataViz</a>'
     }).addTo(map)
 
